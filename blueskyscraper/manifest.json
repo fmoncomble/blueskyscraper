@@ -1,0 +1,16 @@
+{
+    "manifest_version": 3,
+    "name": "BlueskyScraper",
+    "version": "0.1",
+    "description": "A browser extension to scrape Bluesky search results",
+    "homepage_url": "https://fmoncomble.github.io/blueskyscraper/",
+    "permissions": ["storage"],
+    "icons": {
+        "48": "icons/icon-48.png",
+        "96": "icons/icon-96.png"
+    },
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": "icons/icon-32.png"
+    }
+}
