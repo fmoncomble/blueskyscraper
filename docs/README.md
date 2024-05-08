@@ -1,3 +1,5 @@
+![blueskyscraper_banner](https://github.com/fmoncomble/blueskyscraper/assets/59739627/ae109759-a3c0-428f-acd3-bdc501176a4d)
+
 [(Version française)](https://fmoncomble.github.io/blueskyscraper/README_fr.html)
 
 An extension for extracting and downloading Bluesky posts for text mining and analysis.  
