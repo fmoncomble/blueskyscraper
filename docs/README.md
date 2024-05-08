@@ -11,7 +11,7 @@ Moncomble, F. (2024). *BlueskyScraper* (Version 0.1) [JavaScript]. Arras, France
 
 ## Installation
 ### Firefox
-[![Firefox add-on](https://github.com/fmoncomble/Figaro_extractor/assets/59739627/e4df008e-1aac-46be-a216-e6304a65ba97)](https://github.com/fmoncomble/blueskyscraper/releases/latest/download/redditscraper.xpi)  
+[![Firefox add-on](https://github.com/fmoncomble/Figaro_extractor/assets/59739627/e4df008e-1aac-46be-a216-e6304a65ba97)](https://github.com/fmoncomble/blueskyscraper/releases/latest/download/blueskyscraper.xpi)  
 ### Chrome/Edge
 Publication on the Chrome Webstore pending.
     
