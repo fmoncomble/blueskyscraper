@@ -252,9 +252,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     // Function to handle refresh token
     async function saveRefreshToken() {
-        chrome.storage.local.set(
-            { blueskyrefreshtoken: refreshToken }
-        );
+        chrome.storage.local.set({ blueskyrefreshtoken: refreshToken });
     }
 
     // Function to revoke user token
@@ -363,14 +361,15 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
 
     // Logic to build query URL from inputs
-    let queryUrl =
-        'https://public.api.bsky.app/xrpc/app.bsky.feed.searchPosts?';
+    let queryUrl;
     let sortBy = 'latest';
     sortBySelect.addEventListener('change', () => {
         sortBy = sortBySelect.value;
     });
 
     async function buildQueryUrl() {
+        queryUrl = 'https://public.api.bsky.app/xrpc/app.bsky.feed.searchPosts?';
+        
         // Concatenate query URL from search elements
         let keywords = keywordsInput.value.replaceAll(' ', ' AND ');
         let thisPhrase = thisPhraseInput.value;
