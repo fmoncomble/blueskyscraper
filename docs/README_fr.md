@@ -28,7 +28,7 @@ En attendant la disponibilité sur le Chrome WebStore, vous pouvez tester l'exte
  
 ## Mode d'emploi
 - Cliquez sur l'icône de l'extension dans la barre d'outils.
-- Entrez vos identifiant Bluesky pour autoriser l'application (il est préférable de créer un [mot de passe d'application](https://bsky.app/settings/app-passwords)). *Tous les identifiants sont stockés en local sur votre ordinateur, **pas** sur un serveur distant.*
+- Entrez vos identifiant Bluesky pour autoriser l'application (il est préférable de créer un <a href="https://bsky.app/settings/app-passwords" target="_blank">mot de passe d'application</a>). *Tous les identifiants sont stockés en local sur votre ordinateur, **pas** sur un serveur distant.*
 - Construisez votre requête avec au moins un mot clef, puis cliquez sur `Search`.
 - Choisissez le format de sortie désiré :
     - `XML/XTZ` pour un fichier XML à importer dans [TXM](https://txm.gitpages.huma-num.fr/textometrie/en/index.html) en utilisant le module `XML/TEI-Zero`.

@@ -19,7 +19,7 @@ Remember to pin the add-on to the toolbar.
  
 ## Instructions for use
 - Click the add-on's icon in the toolbar.
-- Enter your Bluesky credentials to authorize the app (you may want to use an [app password](https://bsky.app/settings/app-passwords)). *All credentials are stored locally on your computer, **not** on a remote server.*
+- Enter your Bluesky credentials to authorize the app (you may want to use an <a href="https://bsky.app/settings/app-passwords" target="_blank">app password</a>). *All credentials are stored locally on your computer, **not** on a remote server.*
 - Build your search query with at least one keyword, and click `Search`.
 - Choose your preferred output format:
     - `XML/XTZ` for an XML file to import into [TXM](https://txm.gitpages.huma-num.fr/textometrie/en/index.html) using the `XML/TEI-Zero` module
