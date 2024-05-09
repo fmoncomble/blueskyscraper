@@ -13,7 +13,7 @@ Moncomble, F. (2024). *BlueskyScraper* (Version 0.1) [JavaScript]. Arras, France
 ### Firefox
 [![Firefox add-on](https://github.com/fmoncomble/Figaro_extractor/assets/59739627/e4df008e-1aac-46be-a216-e6304a65ba97)](https://github.com/fmoncomble/blueskyscraper/releases/latest/download/blueskyscraper.xpi)  
 ### Chrome/Edge
-Publication on the Chrome Webstore pending.
+[![available-chrome-web-store4321](https://github.com/fmoncomble/blueskyscraper/assets/59739627/2076ad33-f8be-44b5-b61f-660ace7aa3f4)](https://chromewebstore.google.com/detail/blueskyscraper/jmkhelpgncojgldgiegfnnkgnhojdnjh)
     
 Remember to pin the add-on to the toolbar.
  
