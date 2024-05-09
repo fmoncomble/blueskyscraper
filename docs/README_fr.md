@@ -13,18 +13,12 @@ Moncomble, F. (2024). *BlueskyScraper* (Version 0.4) [JavaScript]. Arras, France
 ## Installation
 ### Firefox
 [ ![Firefox add-on](https://github.com/fmoncomble/Figaro_extractor/assets/59739627/e4df008e-1aac-46be-a216-e6304a65ba97)](https://github.com/fmoncomble/blueskyscraper/releases/latest/download/blueskyscraper.xpi)  
-  
-N'oubliez pas d'épingler l'extension à la barre d'outils.
+
 
 ### Chrome/Edge
-En attendant la disponibilité sur le Chrome WebStore, vous pouvez tester l'extension en l'installant en mode développeur :
-- [Téléchargez l'archive .zip](https://github.com/fmoncomble/blueskyscraper/releases/latest/download/blueskyscraper.zip)
-- Décompressez l'archive
-- Ouvrez le gestionnaire d'extensions : `chrome://extensions` ou `edge://extensions`
-  - Activez le « mode développeur »
-  - Cliquez sur « charger l'extension non empaquetée »
-  - Sélectionnez le dossier décompressé
-- Épinglez l'extension à la barre d'outils
+[![available-chrome-web-store4321](https://github.com/fmoncomble/blueskyscraper/assets/59739627/2076ad33-f8be-44b5-b61f-660ace7aa3f4)](https://chromewebstore.google.com/detail/blueskyscraper/jmkhelpgncojgldgiegfnnkgnhojdnjh)
+  
+N'oubliez pas d'épingler l'extension à la barre d'outils.
  
 ## Mode d'emploi
 - Cliquez sur l'icône de l'extension dans la barre d'outils.
