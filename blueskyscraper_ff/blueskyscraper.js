@@ -589,8 +589,8 @@ ${text}
             const csvString = convertToCsv(csvData);
             var myBlob = new Blob([csvString], { type: 'text/csv' });
         } else if (fileFormat === 'xlsx') {
-            XLSX.utils.book_append_sheet(file, sheet, 'Toots');
-            XLSX.writeFile(file, 'toots.xlsx');
+            XLSX.utils.book_append_sheet(file, sheet, 'Results');
+            XLSX.writeFile(file, 'bluesky_results.xlsx');
         }
         if (fileFormat !== 'xlsx') {
             var url = window.URL.createObjectURL(myBlob);
