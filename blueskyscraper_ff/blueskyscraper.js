@@ -526,7 +526,7 @@ ${text}
 </result>
 <lb></lb><lb></lb>`;
                     } else if (fileFormat === 'txt') {
-                        file = file + `\n\n${text}\n————`;
+                        file = file + `\n\n${text}\n\n————`;
                     } else if (fileFormat === 'json') {
                         text = text.replaceAll('\n', ' ');
                         file[id] = {
