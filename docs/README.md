@@ -7,7 +7,7 @@ An extension for extracting and downloading Bluesky posts for text mining and an
 ### Cite this program
 If you use this extension for your research, please reference it as follows:  
   
-Moncomble, F. (2024). *BlueskyScraper* (Version 0.1) [JavaScript]. Arras, France: Université d'Artois. Available at: https://fmoncomble.github.io/blueskyscraper/
+Moncomble, F. (2024). *BlueskyScraper* (Version 0.2) [JavaScript]. Arras, France: Université d'Artois. Available at: https://fmoncomble.github.io/blueskyscraper/
 
 ## Installation
 ### Firefox
