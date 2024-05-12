@@ -540,6 +540,7 @@ ${text}
                         text = text.replaceAll('\n', ' ');
                         csvData.push({ username, date, time, url, text });
                     } else if (fileFormat === 'xlsx') {
+                        text = text.replaceAll('\n', ' ');
                         let row = [username, date, time, url, text];
                         XLSX.utils.sheet_add_aoa(sheet, [row], { origin: -1 });
                     }
