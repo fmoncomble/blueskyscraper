@@ -29,6 +29,7 @@ N'oubliez pas d'épingler l'extension à la barre d'outils.
         - Lors de l'import, ouvrez la section "Plans textuels" et entrez `ref` dans le champ « Hors texte à éditer »
     - `TXT` pour du texte brut
     - `CSV`
+    - `XLSX` (tableau Excel)
     - `JSON`
 - (Facultatif) Entrez un nombre maximum de posts à récupérer.
 - Vous pouvez arrêter l'extraction à tout moment en cliquant sur `Abort`.
