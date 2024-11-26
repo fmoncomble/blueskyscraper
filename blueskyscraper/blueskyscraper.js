@@ -46,6 +46,30 @@ document.addEventListener('DOMContentLoaded', async function () {
     userToken = await retrieveCredential('blueskyusertoken');
     refreshToken = await retrieveCredential('blueskyrefreshtoken');
 
+    if (userToken) {
+        checkSession();
+    }
+
+    // Function to check session status
+    async function checkSession() {
+        if (!userToken) {
+            return;
+        }
+        const res = await fetch(
+            'https://bsky.social/xrpc/com.atproto.server.getSession',
+            {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json',
+                    Authorization: `Bearer ${userToken}`,
+                },
+            }
+        );
+        if (res.status !== 200) {
+            await renewToken();
+        }
+    }
+
     // Assign role to Authentication header
     authFold.addEventListener('click', () => {
         if (authContainer.style.display === 'block') {
@@ -212,6 +236,47 @@ document.addEventListener('DOMContentLoaded', async function () {
         }
     }
 
+    // Function to renew token
+    async function renewToken() {
+        const url =
+            'https://bsky.social/xrpc/com.atproto.server.refreshSession';
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: new Headers({
+                    'content-type': 'application/json',
+                    Authorization: `Bearer ${refreshToken}`,
+                }),
+            });
+            if (response.status === 401) {
+                window.alert(
+                    'Authorization failed: check your ID and password and try again'
+                );
+                throw new Error('Authorization failed');
+            }
+            if (!response.ok) {
+                window.alert('There was an error during authorization');
+                throw new Error('Network response was not ok');
+            }
+            const jsonData = await response.json();
+            accessToken = jsonData.accessJwt;
+            if (accessToken) {
+                userToken = accessToken;
+                refreshToken = jsonData.refreshJwt;
+                await saveUserToken();
+                await saveRefreshToken();
+                idContainer.style.display = 'none';
+                passwordContainer.style.display = 'none';
+                authBtnContainer.style.display = 'none';
+            } else {
+                window.alert('Could not renew access token');
+                throw new Error('Could not renew access token');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
     // Function to retrieve credential from storage
     function retrieveCredential(credType) {
         return new Promise((resolve, reject) => {
@@ -230,8 +295,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     });
 
     async function buildQueryUrl() {
-        queryUrl =
-            'https://bsky.social/xrpc/app.bsky.feed.searchPosts?';
+        queryUrl = 'https://bsky.social/xrpc/app.bsky.feed.searchPosts?';
 
         // Concatenate query URL from search elements
         let keywords = keywordsInput.value;
@@ -284,6 +348,15 @@ document.addEventListener('DOMContentLoaded', async function () {
                 return;
             }
             userToken = await retrieveCredential('blueskyusertoken');
+            if (!userToken) {
+                window.alert('Please authenticate with Bluesky');
+                searchMsg.style.display = 'none';
+                authContainer.style.display = 'block';
+                authFold.style.display = 'block';
+                authUnfold.style.display = 'none';
+                return;
+            }
+            await checkSession();
             const response = await fetch(queryUrl, {
                 method: 'GET',
                 headers: {
@@ -301,9 +374,8 @@ document.addEventListener('DOMContentLoaded', async function () {
                 authUnfold.style.display = 'none';
                 throw new Error('User needs to authorize app');
             } else if (!response || !response.ok) {
-                window.alert(
-                    `Error fetching results: status ${response.status}`
-                );
+                const errorData = await response.json();
+                window.alert(`Error fetching results: "${errorData.message}"`);
                 searchMsg.style.display = 'none';
                 throw new Error('Could not fetch search results.');
             }
@@ -391,6 +463,8 @@ document.addEventListener('DOMContentLoaded', async function () {
     });
     // Function to scrape results
     async function scrape() {
+        await checkSession();
+        queryUrl = queryUrl + '&limit=100';
         abort = false;
         extractBtn.style.display = 'none';
         abortBtn.style.display = 'block';
@@ -460,8 +534,9 @@ document.addEventListener('DOMContentLoaded', async function () {
                     );
                     throw new Error('Could not fetch: not authenticated');
                 } else if (!response.ok) {
+                    const errorData = await response.json();
                     window.alert(
-                        `Error fetching results: HTTP error ${response.status}`
+                        `Error fetching results: "${errorData.message}"`
                     );
                     throw new Error(
                         'HTTP error, could not fetch search results'
