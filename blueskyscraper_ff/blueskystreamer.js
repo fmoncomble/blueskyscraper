@@ -434,7 +434,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     console.error(error);
                 }
                 const postText = postElement.querySelector('.post-text');
-                postText.innerHTML = text;
+                postText.textContent = text;
                 previewContainer.appendChild(postElement);
                 previewContainer.scrollTop = previewContainer.scrollHeight;
             }
@@ -453,7 +453,7 @@ document.addEventListener('DOMContentLoaded', function () {
             dlBtn.style.cursor = 'wait';
             const spinner = document.createElement('span');
             spinner.classList.add('spinner');
-            dlBtn.innerHTML = '';
+            dlBtn.textContent = '';
             dlBtn.appendChild(spinner);
             spinner.style.display = 'inline-block';
             const counterSpan = document.createElement('span');
@@ -536,7 +536,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const commonKeys = getCommonKeys(records);
             const keyTree = buildKeyTree(records[0], commonKeys);
             const container = dlDialog.querySelector('#keys-container');
-            container.innerHTML = '';
+            container.textContent = '';
             generateListTree(keyTree, container);
             const checkboxes = dlDialog.querySelectorAll(
                 'input[type="checkbox"]'
@@ -687,7 +687,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function downloadCsv() {
         const spinner = document.createElement('span');
         spinner.classList.add('spinner');
-        dlConfirmBtn.innerHTML = '';
+        dlConfirmBtn.textContent = '';
         dlConfirmBtn.appendChild(spinner);
         spinner.style.display = 'inline-block';
         const header = Object.keys(posts[0]).join('\t');
@@ -706,7 +706,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function downloadJson() {
         const spinner = document.createElement('span');
         spinner.classList.add('spinner');
-        dlConfirmBtn.innerHTML = '';
+        dlConfirmBtn.textContent = '';
         dlConfirmBtn.appendChild(spinner);
         spinner.style.display = 'inline-block';
         const json = JSON.stringify(posts, null, 2);
@@ -723,7 +723,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function downloadXml() {
         const spinner = document.createElement('span');
         spinner.classList.add('spinner');
-        dlConfirmBtn.innerHTML = '';
+        dlConfirmBtn.textContent = '';
         dlConfirmBtn.appendChild(spinner);
         spinner.style.display = 'inline-block';
         let xml = '<Text>';
@@ -764,7 +764,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function downloadTxt() {
         const spinner = document.createElement('span');
         spinner.classList.add('spinner');
-        dlConfirmBtn.innerHTML = '';
+        dlConfirmBtn.textContent = '';
         dlConfirmBtn.appendChild(spinner);
         spinner.style.display = 'inline-block';
         let txt = '';

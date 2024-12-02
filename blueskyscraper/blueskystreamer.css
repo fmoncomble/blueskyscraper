@@ -173,7 +173,7 @@ button.reset-btn:hover {
 button.dl-btn {
     border: 1px solid green;
     color: green;
-    width: 150px;
+    min-width: 150px;
 }
 button.dl-btn:hover {
     border-color: darkgreen;
@@ -267,7 +267,7 @@ div.post-date {
 .spinner {
     width: 15px;
     height: 15px;
-    border: 3px solid white;
+    border: 3px solid #ccc;
     border-left: 3px solid black;
     border-radius: 50%;
     animation: spin 1s linear infinite;
