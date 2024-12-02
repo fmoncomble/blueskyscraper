@@ -430,7 +430,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     console.error(error);
                 }
                 const postText = postElement.querySelector('.post-text');
-                postText.textContent = text;
+                postText.innerHTML = text;
                 previewContainer.appendChild(postElement);
                 previewContainer.scrollTop = previewContainer.scrollHeight;
             }
