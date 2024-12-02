@@ -8,7 +8,7 @@ Une extension pour extraire et télécharger des posts Bluesky à des fins de fo
 
 Si vous utilisez cette extension pour votre recherche, veuillez la référencer comme suit :
 
-Moncomble, F. (2024). _BlueskyScraper_ (Version 0.2) [JavaScript]. Arras, France : Université d'Artois. Disponible à l'adresse : https://fmoncomble.github.io/blueskyscraper/
+Moncomble, F. (2024). _BlueskyScraper_ (Version 0.3) [JavaScript]. Arras, France : Université d'Artois. Disponible à l'adresse : https://fmoncomble.github.io/blueskyscraper/
 
 ## Installation
 

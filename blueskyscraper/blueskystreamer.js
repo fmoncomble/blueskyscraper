@@ -139,7 +139,6 @@ document.addEventListener('DOMContentLoaded', function () {
                                 return null;
                             }
                             const data = await res.json();
-                            console.log(data);
                             return data.did;
                         } catch (error) {
                             window.alert(
@@ -153,8 +152,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     return dids;
                 }
 
-                console.log('User DIDs: ', dids);
-                console.log('Jetstream URL: ', wsUrl);
                 if (
                     (handleInput.value && dids.length > 0 && !dids.includes(null)) ||
                     !handleInput.value
@@ -423,7 +420,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         return;
                     }
                     const data = await res.json();
-                    console.log('User data: ', data);
                     postUserImg.src = data.avatar;
                     if (data.displayName) {
                         postUserName.textContent = data.displayName;
