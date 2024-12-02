@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "BlueskyScraper",
-    "version": "0.2.5",
+    "version": "0.3",
     "description": "A browser extension to scrape Bluesky search results",
     "homepage_url": "https://fmoncomble.github.io/blueskyscraper/",
     "permissions": ["storage"],

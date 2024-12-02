@@ -1,6 +1,11 @@
 console.log('BlueskyScraper script loaded');
 
 document.addEventListener('DOMContentLoaded', async function () {
+    // Set version number
+    const versionDiv = document.getElementById('version-div');
+    const version = chrome.runtime.getManifest().version;
+    versionDiv.textContent = 'v' + version;
+    
     // Declare page elements
     const authContainer = document.getElementById('auth-container');
     const authFold = document.getElementById('auth-fold');

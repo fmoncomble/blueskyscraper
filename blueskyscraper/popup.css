@@ -10,7 +10,6 @@ body {
     font-family: 'Roboto', system-ui, sans-serif;
     font-size: small;
     width: 236px;
-    height: 150px;
     padding: 10px;
 }
 
@@ -18,9 +17,10 @@ button {
     color: #1185feff;
     border: solid 1px #1185feff;
     background-color: white;
-    height: 32px;
-    width: 50px;
-    border-radius: 4px;
+    margin: 5px;
+    width: 235px;
+    padding: 5px 10px;
+    border-radius: 5px;
     cursor: pointer;
 }
 
