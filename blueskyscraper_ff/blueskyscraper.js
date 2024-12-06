@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     const versionDiv = document.getElementById('version-div');
     const version = chrome.runtime.getManifest().version;
     versionDiv.textContent = 'v' + version;
-    
+
     // Declare page elements
     const authContainer = document.getElementById('auth-container');
     const authFold = document.getElementById('auth-fold');
@@ -578,6 +578,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                             .replaceAll('"', '&quot;')
                             .replaceAll("'", '&apos;');
                         text = text
+                            .replaceAll('&', '&amp;')
                             .replaceAll('<', '&lt;')
                             .replaceAll('>', '&gt;')
                             .replaceAll('"', '&quot;')
