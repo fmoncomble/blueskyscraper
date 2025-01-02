@@ -382,7 +382,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
                 postElement.style.display = 'block';
                 if (Array.isArray(found)) {
-                    const words = text.split(/([\s\.?!"'“”‘’:;,\/\\]+)/gu);
+                    const words = text.split(/([\s\.?!"'“”‘’:;,\/\\#]+)/gu);
                     if (wholeWords) {
                         text = words
                             .map((word) => {
@@ -469,21 +469,58 @@ document.addEventListener('DOMContentLoaded', function () {
             dlBtn.appendChild(counterSpan);
             counterSpan.style.display = 'inline-block';
             let uris = [];
+            let processedPosts = [];
             let index = 0;
             let total = rawPosts.length;
             while (rawPosts.length > 0) {
-                uris[index] = rawPosts.splice(0, 25).map((post) => {
+                processedPosts[index] = rawPosts.splice(0, 25).map((post) => {
                     const repo = post.did;
                     const collection = post.commit.collection;
                     const rkey = post.commit.rkey;
-                    return `at://${repo}/${collection}/${rkey}`;
+                    const uri = `at://${repo}/${collection}/${rkey}`;
+                    return [repo, uri];
+                    // return `at://${repo}/${collection}/${rkey}`;
                 });
                 index++;
             }
-            for (let uriArray of uris) {
+            // for (let uriArray of uris) {
+            for (let ppArray of processedPosts) {
+                console.log(
+                    `Posts in array ${processedPosts.indexOf(
+                        ppArray
+                    )} before filtering: ${ppArray.length}`
+                );
+                let getProfilesUrl = `https://public.api.bsky.app/xrpc/app.bsky.actor.getProfiles?`;
+                ppArray.forEach((pp) => {
+                    getProfilesUrl += `actors=${pp[0]}&`;
+                });
+                try {
+                    const res = await fetch(getProfilesUrl);
+                    if (!res.ok) {
+                        const errData = await res.json();
+                        console.error(errData.message);
+                        continue;
+                    }
+                    const data = await res.json();
+                    let profiles = data.profiles;
+                    for (let p of profiles) {
+                        const bio = p.description;
+                        if (bio && bio.toLowerCase().includes('🔞')) {
+                            console.log('Excluding nsfw profile');
+                            ppArray.splice(ppArray.indexOf(p), 1);
+                        }
+                    }
+                    console.log(
+                        `Posts in array ${processedPosts.indexOf(
+                            ppArray
+                        )} after filtering: ${ppArray.length}`
+                    );
+                } catch (error) {
+                    console.error(error);
+                }
                 let url = `https://public.api.bsky.app/xrpc/app.bsky.feed.getPosts?`;
-                uriArray.forEach((uri) => {
-                    url += `uris=${uri}&`;
+                ppArray.forEach((pp) => {
+                    url += `uris=${pp[1]}&`;
                 });
                 try {
                     const res = await fetch(url);
@@ -494,12 +531,30 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                     const data = await res.json();
                     records.push(...data.posts);
+                    console.log(`Records length: ${records.length}`);
                     counterSpan.textContent = `Downloaded ${records.length} of ${total}`;
                 } catch (error) {
                     console.error(error);
                 }
             }
         }
+        // let url = `https://public.api.bsky.app/xrpc/app.bsky.feed.getPosts?`;
+        // uriArray.forEach((uri) => {
+        //     url += `uris=${uri}&`;
+        // });
+        // try {
+        //     const res = await fetch(url);
+        //     if (!res.ok) {
+        //         const errData = await res.json();
+        //         console.error(errData.message);
+        //         continue;
+        //     }
+        //     const data = await res.json();
+        //     records.push(...data.posts);
+        //     counterSpan.textContent = `Downloaded ${records.length} of ${total}`;
+        // } catch (error) {
+        //     console.error(error);
+        // }
 
         // Function to filter data items to suggest
         function getCommonKeys(records) {
