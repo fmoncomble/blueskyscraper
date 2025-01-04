@@ -303,6 +303,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     // Manage mode
     let mode = 'keyword-search';
+    keywordRadio.checked = true;
     keywordRadio.addEventListener('change', () => {
         if (keywordRadio.checked) {
             mode = 'keyword-search';
@@ -735,6 +736,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                     const li = document.createElement('li');
                     const checkbox = document.createElement('input');
                     checkbox.type = 'checkbox';
+                    checkbox.classList.add('data-item');
                     checkbox.id = key;
                     checkbox.name = key;
 
@@ -855,7 +857,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     function buildData() {
         posts = [];
-        const checkboxes = dlDialog.querySelectorAll('input[type="checkbox"]');
+        const checkboxes = dlDialog.querySelectorAll('input[type="checkbox"].data-item');
         for (let r of records) {
             let post = {};
             for (let checkbox of checkboxes) {
