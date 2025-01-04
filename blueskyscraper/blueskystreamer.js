@@ -572,6 +572,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const li = document.createElement('li');
                 const checkbox = document.createElement('input');
                 checkbox.type = 'checkbox';
+                checkbox.classList.add('data-item');
                 checkbox.id = key;
                 checkbox.name = key;
 
@@ -693,7 +694,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to build the array of posts
     function buildData() {
         posts = [];
-        const checkboxes = dlDialog.querySelectorAll('input[type="checkbox"]');
+        const checkboxes = dlDialog.querySelectorAll('input[type="checkbox"].data-item');
         for (let r of records) {
             let post = {};
             for (let checkbox of checkboxes) {
